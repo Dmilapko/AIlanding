@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -12,6 +12,14 @@
   <ItemGroup>
     <None Remove="Icon.ico" />
     <None Remove="Icon.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="{d37e2a3e-8545-3a39-9f4f-31827c9124ab}">
+      <WrapperTool>tlbimp</WrapperTool>
+      <VersionMinor>4</VersionMinor>
+      <VersionMajor>2</VersionMajor>
+      <Guid>d37e2a3e-8545-3a39-9f4f-31827c9124ab</Guid>
+    </COMReference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Icon.ico" />
@@ -29,8 +37,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\AILib\AILib\AILib.csproj" />
+    <ProjectReference Include="..\..\MonogameButton\MonogameButton\MonogameButton.csproj" />
+    <ProjectReference Include="..\..\MonogameLabel\MonogameLabel\MonogameLabel.csproj" />
+    <ProjectReference Include="..\..\MonogameTextBoxLib\MonogameTextBoxLib\MonogameTextBoxLib.csproj" />
     <ProjectReference Include="..\..\MonoHelper\MonoHelper\MonoHelper.csproj" />
-    <ProjectReference Include="..\..\Physics\Physics\Physics.csproj" />
+    <ProjectReference Include="..\..\PhysicsLib\PhysicsLib\PhysicsLib.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoHelper">
@@ -38,6 +49,9 @@
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\..\CarsGame\CarsGame\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing.Common">
+      <HintPath>C:\Users\dmila\.nuget\packages\system.drawing.common\6.0.0\runtimes\win\lib\netcoreapp3.1\System.Drawing.Common.dll</HintPath>
     </Reference>
   </ItemGroup>
 </Project>
