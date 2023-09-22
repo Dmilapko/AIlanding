@@ -59,6 +59,7 @@ namespace AIlanding
 
         void NextAIs(bool loaded = false)
         {
+            ais.RemoveAt(0);
             int max_storage = 1000;
             if (!loaded)
             {
@@ -106,6 +107,7 @@ namespace AIlanding
             prevais = ais.CreateDeepCopy();
             //!visiualize
             ais.Clear();
+            ais.Add(prevais[0].CreateDeepCopy());
             int max_kc = 0;
             for (int i = 0; i < Math.Min(250, prevais.Count); i++)
             {
@@ -129,8 +131,7 @@ namespace AIlanding
                     ais.Add(current_ai);
                 }
             }
-            //ais.Add(prevais[0].CreateDeepCopy());
-            visualizer = new MyAIVisualizer(ais[ais.Count - 1]);
+            visualizer = new MyAIVisualizer(ais[0]);
             phase = 1;
             now_level = 0;
         }

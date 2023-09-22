@@ -40,7 +40,9 @@
     <ProjectReference Include="..\..\MonogameButton\MonogameButton\MonogameButton.csproj" />
     <ProjectReference Include="..\..\MonogameLabel\MonogameLabel\MonogameLabel.csproj" />
     <ProjectReference Include="..\..\MonogameTextBoxLib\MonogameTextBoxLib\MonogameTextBoxLib.csproj" />
+    <ProjectReference Include="..\..\MonoHelper\MonoHelper.csproj" />
     <ProjectReference Include="..\..\MonoHelper\MonoHelper\MonoHelper.csproj" />
+    <ProjectReference Include="..\..\PhysicsLib\PhysicsLib.csproj" />
     <ProjectReference Include="..\..\PhysicsLib\PhysicsLib\PhysicsLib.csproj" />
   </ItemGroup>
   <ItemGroup>
@@ -49,6 +51,9 @@
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\..\CarsGame\CarsGame\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PhysicsLib">
+      <HintPath>..\..\PhysicsLib\bin\Release\netcoreapp3.1\PhysicsLib.dll</HintPath>
     </Reference>
     <Reference Include="System.Drawing.Common">
       <HintPath>C:\Users\dmila\.nuget\packages\system.drawing.common\6.0.0\runtimes\win\lib\netcoreapp3.1\System.Drawing.Common.dll</HintPath>

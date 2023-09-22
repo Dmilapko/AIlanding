@@ -69,15 +69,12 @@ namespace AIlanding
             return new Vector2((float)(point.X * 10), (float)(point.Y * 10)).FlipY();
         }
 
+
         [STAThread]
         static void Main()
         {
-            List<int> ar = new List<int>(new int[10]);
-            double sum = 0;
-            for (int i = 1; i < 10000; i++)
-            {
-                sum += i * Math.Pow(0.95d, i);
-            }
+            double opc = 1.5;
+            int tcount = 0;
             if ((File.Exists(setuppath)) && (File.ReadAllText(setuppath) != ""))
             {
                 GetSetup();
