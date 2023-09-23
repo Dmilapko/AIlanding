@@ -15,6 +15,7 @@ using AILib;
 using AITYPE = AIlanding.MyAI5;
 using System.Runtime.ConstrainedExecution;
 using System.Linq;
+using Newtonsoft.Json;
 
 namespace AIlanding
 {
@@ -100,8 +101,13 @@ namespace AIlanding
                     ais.Add(current_ai);
                 }
             }
+            prevais[0].Reset();
             ais.Add(prevais[0].CreateDeepCopy());
             visualizer = new MyAIVisualizer(ais[ais.Count - 1]);
+            if (JsonConvert.SerializeObject(ais[ais.Count - 1]) != JsonConvert.SerializeObject(prevais[0]))
+            {
+
+            }
         }
 
         void NextModules()

@@ -14,6 +14,7 @@ using FormElementsLib;
 using AILib;
 using AITYPE = AIlanding.MyAI5;
 using System.Linq;
+using Newtonsoft.Json;
 
 namespace AIlanding
 {
@@ -108,6 +109,8 @@ namespace AIlanding
             //!visiualize
             ais.Clear();
             ais.Add(prevais[0].CreateDeepCopy());
+            ais[0].Reset();
+            prevais[0].Reset();
             int max_kc = 0;
             for (int i = 0; i < Math.Min(250, prevais.Count); i++)
             {
@@ -131,7 +134,15 @@ namespace AIlanding
                     ais.Add(current_ai);
                 }
             }
+           /* if (JsonConvert.SerializeObject(ais[0]) == JsonConvert.SerializeObject(prevais[0]))
+            {
+
+            }*/
             visualizer = new MyAIVisualizer(ais[0]);
+            if (JsonConvert.SerializeObject(ais[0]) != JsonConvert.SerializeObject(prevais[0]))
+            {
+
+            }
             phase = 1;
             now_level = 0;
         }
@@ -225,7 +236,8 @@ namespace AIlanding
                         else
                         {
                             if (i < ais.Count) ais[i].temp_goodness += 120;
-                            else prevais[i - ais.Count].temp_goodness += 120;
+                            else 
+                                prevais[i - ais.Count].temp_goodness += 120;
                         }
                     }
                     NextModules();
@@ -238,8 +250,12 @@ namespace AIlanding
                         if (module.alive)
                         {
                             module.Make_AI_params();
+                            /*if (i < ais.Count) module.Run_AI5_PHASE2(ais[0]);
+                            else 
+                                module.Run_AI5_PHASE2(prevais[0]);*/
                             if (i < ais.Count) module.Run_AI5_PHASE2(ais[i]);
-                            else module.Run_AI5_PHASE2(prevais[i - ais.Count]);
+                            else
+                                module.Run_AI5_PHASE2(prevais[i-ais.Count]);
                             if (module.ever_collided[0] && module.ever_collided[1])
                             {
                                 module.ResetInputs();
