@@ -60,10 +60,10 @@ namespace AIlanding
 
         void NextAIs(bool loaded = false)
         {
-            ais.RemoveAt(0);
             int max_storage = 1000;
             if (!loaded)
             {
+                ais.RemoveAt(0);
                 foreach (var now_ai in ais)
                 {
                     now_ai.ApplyGoodness();

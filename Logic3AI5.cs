@@ -55,7 +55,8 @@ namespace AIlanding
             }
             if (File.Exists(s2) && (File.ReadAllText(s2) != ""))
             {
-                ail = MHeleper.ReadFromBinaryFile<List<AITYPE>>(s2)[0];
+                var lai = MHeleper.ReadFromBinaryFile<List<AITYPE>>(s2);
+                ail = lai[0];
                 ail.Reset();
             }
             else
